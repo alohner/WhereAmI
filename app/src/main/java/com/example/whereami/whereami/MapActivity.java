@@ -32,7 +32,7 @@ public class MapActivity extends Activity {
     }
 
     private void mapInit() {
-        IndoorMap.add(new mapPosition("bacon",-180,433));
+        IndoorMap.add(new mapPosition("bacon",180,433));
         IndoorMap.add(new mapPosition("cookie",50,20));
     }
 

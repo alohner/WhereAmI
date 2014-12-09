@@ -1,2 +1,2 @@
 include ':app', ':opencv2'
-include ':tesstwo'
+include ':libraries:tess-two'

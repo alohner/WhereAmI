@@ -5,7 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/WhereAmI.iml" filepath="$PROJECT_DIR$/WhereAmI.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/opencv2/opencv2.iml" filepath="$PROJECT_DIR$/opencv2/opencv2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tesstwo/tesstwo.iml" filepath="$PROJECT_DIR$/tesstwo/tesstwo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/tess-two/tess-two.iml" filepath="$PROJECT_DIR$/libraries/tess-two/tess-two.iml" />
     </modules>
   </component>
 </project>

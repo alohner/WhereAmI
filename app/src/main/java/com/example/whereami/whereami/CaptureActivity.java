@@ -28,8 +28,8 @@ import com.googlecode.tesseract.android.TessBaseAPI;
 
 public class CaptureActivity extends Activity {
     public static final String PACKAGE_NAME = "com.datumdroid.android.ocr.simple";
-    public static final String DATA_PATH = Environment
-            .getExternalStorageDirectory().toString() + "/SimpleAndroidOCR/";
+    public static final String DATA_PATH =
+            Environment.getExternalStorageDirectory().toString() + "/SimpleAndroidOCR/";
 
     // You should have the trained data file in assets folder
     // You can get them at:
@@ -72,7 +72,7 @@ public class CaptureActivity extends Activity {
             try {
 
                 AssetManager assetManager = getAssets();
-                InputStream in = assetManager.open("tessdata/" + lang + ".traineddata");
+                InputStream in = assetManager.open("tesseract/tessdata/" + lang + ".traineddata");
                 //GZIPInputStream gin = new GZIPInputStream(in);
                 OutputStream out = new FileOutputStream(DATA_PATH
                         + "tessdata/" + lang + ".traineddata");
@@ -210,7 +210,8 @@ public class CaptureActivity extends Activity {
 
         TessBaseAPI baseApi = new TessBaseAPI();
         baseApi.setDebug(true);
-        baseApi.init(DATA_PATH, lang);
+       // baseApi.init(DATA_PATH, lang);
+        baseApi.init(DATA_PATH+"tesseract/tessdata/eng.traineddata", lang);
         baseApi.setImage(bitmap);
 
         String recognizedText = baseApi.getUTF8Text();

@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.example.whereami.whereami"
         minSdkVersion 15
-        targetSdkVersion 20
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
@@ -22,5 +22,5 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':opencv2')
-    compile project(':libraries:tess-two')
+    compile project(':tess-two')
 }

@@ -1,2 +1,3 @@
-include ':app', ':opencv2'
+include ':app', ':opencv2', ':tess-two'
 include ':libraries:tess-two'
+project(':tess-two').projectDir = new File('libraries/tess-two')

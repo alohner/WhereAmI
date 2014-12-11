@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
         public void onClick(View v) {
             Intent intent = new Intent(getApplicationContext(), MapActivity.class);
             EditText edittext = (EditText) findViewById(R.id.TB_RoomName);
-            intent.putExtra("room", edittext.getText().toString());
+            intent.putExtra("NamePosition", edittext.getText().toString());
             startActivity(intent);
             //finish();
         }

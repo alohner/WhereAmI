@@ -21,7 +21,7 @@ import com.example.whereami.whereami.TessAsyncEngine;
 public class CaptureActivity  extends Activity implements SurfaceHolder.Callback, View.OnClickListener,
         Camera.PictureCallback, Camera.ShutterCallback {
 
-    static final String TAG = "DBG_" + MainActivity.class.getName();
+    static final String TAG = "DBG_" + CaptureActivity.class.getName();
 
     Button shutterButton;
     Button focusButton;
@@ -32,7 +32,7 @@ public class CaptureActivity  extends Activity implements SurfaceHolder.Callback
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_capture);
     }
 
     @Override

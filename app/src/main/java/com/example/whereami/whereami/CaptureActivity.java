@@ -1,6 +1,7 @@
 package com.example.whereami.whereami;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
 import android.os.AsyncTask;
@@ -33,6 +34,9 @@ public class CaptureActivity  extends Activity implements SurfaceHolder.Callback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capture);
+
+        //on force l'orientation portrait
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
     @Override
@@ -106,6 +110,7 @@ public class CaptureActivity  extends Activity implements SurfaceHolder.Callback
     public void onClick(View v) {
         if(v == shutterButton){
             if(cameraEngine != null && cameraEngine.isOn()){
+               // focusBox.adjustBox(); //on décale la box
                 cameraEngine.takeShot(this, this, this);
             }
         }

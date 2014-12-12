@@ -9,6 +9,10 @@ import android.widget.EditText;
 
 import com.example.whereami.whereami.ImageDialog;
 import com.example.whereami.whereami.Tools;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by Quentin on 11/12/2014.
  */
@@ -80,7 +84,7 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
         if(s == null || bmp == null || context == null)
             return;
 
-        s.replaceAll("/", "");
+        /*s.replaceAll("/", "");
         s.replaceAll("!", "");
         s.replaceAll("@", "");
         s.replaceAll("#", "");
@@ -149,7 +153,15 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
         s.replaceAll("W", "");
         s.replaceAll("X", "");
         s.replaceAll("Y", "");
-        s.replaceAll("Z", "");
+        s.replaceAll("Z", "");*/
+
+        Pattern p = Pattern.compile("P[0-9]-[0-9]{4}");
+        Matcher m = p.matcher(s);
+        Boolean b = m.matches();
+
+        if(b){
+            Log.d("cool","texte ok");
+        }
 
         ImageDialog.New()
                 .addBitmap(bmp)

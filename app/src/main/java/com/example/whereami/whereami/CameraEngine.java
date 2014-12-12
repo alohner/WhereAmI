@@ -1,8 +1,10 @@
 package com.example.whereami.whereami;
 
+import android.content.res.Configuration;
 import android.hardware.Camera;
 import android.util.Log;
 import android.view.SurfaceHolder;
+import android.content.*;
 
 import java.io.IOException;
 /**
@@ -15,6 +17,7 @@ public class CameraEngine {
     boolean on;
     Camera camera;
     SurfaceHolder surfaceHolder;
+    private Context ctx;
 
     Camera.AutoFocusCallback autoFocusCallback = new Camera.AutoFocusCallback() {
         @Override
@@ -28,6 +31,7 @@ public class CameraEngine {
     }
 
     private CameraEngine(SurfaceHolder surfaceHolder){
+
         this.surfaceHolder = surfaceHolder;
     }
 
@@ -58,7 +62,19 @@ public class CameraEngine {
         try {
 
             this.camera.setPreviewDisplay(this.surfaceHolder);
-            this.camera.setDisplayOrientation(90);
+
+            //Rotate to portrait
+            if (ctx.getResources().getConfiguration().orientation != Configuration.ORIENTATION_LANDSCAPE)
+            {
+                this.camera.setDisplayOrientation(90);
+            }
+
+            //Rotate to landscape
+            if (ctx.getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT)
+            {
+                this.camera.setDisplayOrientation(0);
+            }
+
             this.camera.startPreview();
 
             on = true;
@@ -90,5 +106,12 @@ public class CameraEngine {
             camera.takePicture(shutterCallback, rawPictureCallback, jpegPictureCallback);
         }
     }
+
+
+    public void setContext(Context ctx)
+    {
+        this.ctx = ctx;
+    }
+
 
 }

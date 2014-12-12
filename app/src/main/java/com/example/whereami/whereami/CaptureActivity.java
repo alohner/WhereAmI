@@ -50,6 +50,7 @@ public class CaptureActivity  extends Activity implements SurfaceHolder.Callback
         }
 
         cameraEngine = CameraEngine.New(holder);
+        cameraEngine.setContext(this);
         cameraEngine.start();
 
         Log.d(TAG, "Camera engine started");
@@ -57,6 +58,7 @@ public class CaptureActivity  extends Activity implements SurfaceHolder.Callback
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
 
     }
 
@@ -82,6 +84,10 @@ public class CaptureActivity  extends Activity implements SurfaceHolder.Callback
         surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
         cameraFrame.setOnClickListener(this);
+
+        if (cameraEngine != null && cameraEngine.isOn()) {
+            cameraEngine.start();
+        }
     }
 
     @Override

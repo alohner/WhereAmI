@@ -80,14 +80,14 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
         if(s == null || bmp == null || context == null)
             return;
 
-        //ImageDialog.New()
-        //        .addBitmap(bmp)
-        //       .addTitle(s)
-        //       .show(context.getFragmentManager(), TAG);
+        ImageDialog.New()
+                .addBitmap(bmp)
+               .addTitle(s)
+               .show(context.getFragmentManager(), TAG);
 
-        Intent intent = new Intent(context.getApplicationContext(), MapActivity.class);
-        intent.putExtra("NamePosition", s);
-        context.startActivity(intent);
+        //Intent intent = new Intent(context.getApplicationContext(), MapActivity.class);
+        //intent.putExtra("NamePosition", s);
+        //context.startActivity(intent);
 
         super.onPostExecute(s);
     }

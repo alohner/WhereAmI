@@ -163,6 +163,8 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
             Log.d("cool","texte ok");
         }
 
+        System.out.println("Chaine envoyé : " + s);
+
         ImageDialog.New()
                 .addBitmap(bmp)
                .addTitle(s)

@@ -98,9 +98,7 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
         s.replaceAll("~", "");
         s.replaceAll(",", "");
         s.replaceAll(".", "");
-        s.replaceAll("}", "");
         s.replaceAll("'", "");
-        s.replaceAll("]", "");
         s.replaceAll(" ", "");
         s.replaceAll("a", "");
         s.replaceAll("b", "");

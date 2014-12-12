@@ -36,7 +36,7 @@ public class MapActivity extends Activity {
         //Toast.makeText(getApplicationContext() , b.getString("room"), Toast.LENGTH_LONG).show();
 
         ImageView img = (ImageView) findViewById(R.id.IMG_Map);
-        img.setImageResource(R.drawable.map);
+        img.setImageResource(R.drawable.planUQAC);
 
         //on récupère la position de l'utilisateur
         userPos = indoorMap.getNodeWithName(b.getString("NamePosition"));

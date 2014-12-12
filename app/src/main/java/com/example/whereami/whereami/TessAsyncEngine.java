@@ -1,9 +1,11 @@
 package com.example.whereami.whereami;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.EditText;
 
 import com.example.whereami.whereami.ImageDialog;
 import com.example.whereami.whereami.Tools;
@@ -78,10 +80,14 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
         if(s == null || bmp == null || context == null)
             return;
 
-        ImageDialog.New()
-                .addBitmap(bmp)
-                .addTitle(s)
-                .show(context.getFragmentManager(), TAG);
+        //ImageDialog.New()
+        //        .addBitmap(bmp)
+        //       .addTitle(s)
+        //       .show(context.getFragmentManager(), TAG);
+
+        Intent intent = new Intent(context.getApplicationContext(), MapActivity.class);
+        intent.putExtra("NamePosition", s);
+        context.startActivity(intent);
 
         super.onPostExecute(s);
     }

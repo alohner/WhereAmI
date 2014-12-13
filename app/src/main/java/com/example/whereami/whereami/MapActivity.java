@@ -22,6 +22,7 @@ public class MapActivity extends Activity {
     //Map de la fac
     public Graph indoorMap;
     public Node userPos;
+    private String salleActuelle;
 
 
     @Override
@@ -33,21 +34,27 @@ public class MapActivity extends Activity {
         mapInit();
         //Récupère les informations passé en paramètre de l'activité
         Bundle b = getIntent().getExtras();
+        if(b != null) {
+            salleActuelle = b.getString("NamePosition");
+
+            ImageView img = (ImageView) findViewById(R.id.IMG_Map);
+            img.setImageResource(R.drawable.planuqac);
+
+            //on récupère la position de l'utilisateur
+            userPos = indoorMap.getNodeWithName(b.getString("NamePosition"));
+            if (userPos!=null)//Si on l'a trouvé alors on affiche
+            {
+                locateHim(userPos.getPosition());
+            }else
+            {
+                //petit message d'erreur
+                Toast.makeText(getApplicationContext() , "Erreur Position inconnue !!", Toast.LENGTH_LONG).show();
+            }
+
+        }
         //Toast.makeText(getApplicationContext() , b.getString("room"), Toast.LENGTH_LONG).show();
 
-        ImageView img = (ImageView) findViewById(R.id.IMG_Map);
-        img.setImageResource(R.drawable.planuqac);
 
-        //on récupère la position de l'utilisateur
-        userPos = indoorMap.getNodeWithName(b.getString("NamePosition"));
-        if (userPos!=null)//Si on l'a trouvé alors on affiche
-        {
-            locateHim(userPos.getPosition());
-        }else
-        {
-            //petit message d'erreur
-            Toast.makeText(getApplicationContext() , "Erreur Position inconnue !!", Toast.LENGTH_LONG).show();
-        }
 
     }
 

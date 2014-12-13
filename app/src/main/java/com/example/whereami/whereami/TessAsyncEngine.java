@@ -155,22 +155,29 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
         s.replaceAll("Y", "");
         s.replaceAll("Z", "");*/
 
+        Log.d("TAG","LE STRING = "+s);
         Pattern p = Pattern.compile("P[0-9]-[0-9]{4}");
         Matcher m = p.matcher(s);
         Boolean b = m.matches();
 
+        String resultat =""; //string à afficher dans le popup
+
         if(b){
             Log.d("cool","texte ok");
+            resultat = s;
         }
+
+        else
+        resultat = "Données Illisibles";
 
         ImageDialog.New()
                 .addBitmap(bmp)
-               .addTitle(s)
+               .addTitle(resultat)
                .show(context.getFragmentManager(), TAG);
 
-        //Intent intent = new Intent(context.getApplicationContext(), MapActivity.class);
-        //intent.putExtra("NamePosition", s);
-        //context.startActivity(intent);
+        Intent intent = new Intent(context.getApplicationContext(), MapActivity.class);
+        intent.putExtra("NamePosition", s);
+       // context.startActivity(intent);
 
         super.onPostExecute(s);
     }

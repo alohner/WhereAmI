@@ -1,12 +1,18 @@
 package com.example.whereami.whereami;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.EditText;
 
 import com.example.whereami.whereami.ImageDialog;
 import com.example.whereami.whereami.Tools;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by Quentin on 11/12/2014.
  */
@@ -78,10 +84,101 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
         if(s == null || bmp == null || context == null)
             return;
 
-        ImageDialog.New()
+        /*s.replaceAll("/", "");
+        s.replaceAll("!", "");
+        s.replaceAll("@", "");
+        s.replaceAll("#", "");
+        s.replaceAll("$", "");
+        s.replaceAll("%", "");
+        s.replaceAll("^", "");
+        s.replaceAll("&", "");
+        s.replaceAll("_", "");
+        s.replaceAll(";", "");
+        s.replaceAll(":", "");
+        s.replaceAll("=", "");
+        s.replaceAll("|", "");
+        s.replaceAll("<", "");
+        s.replaceAll(">", "");
+        s.replaceAll("~", "");
+        s.replaceAll(",", "");
+        s.replaceAll(".", "");
+        s.replaceAll("'", "");
+        s.replaceAll(" ", "");
+        s.replaceAll("a", "");
+        s.replaceAll("b", "");
+        s.replaceAll("c", "");
+        s.replaceAll("d", "");
+        s.replaceAll("e", "");
+        s.replaceAll("f", "");
+        s.replaceAll("g", "");
+        s.replaceAll("h", "");
+        s.replaceAll("i", "");
+        s.replaceAll("j", "");
+        s.replaceAll("k", "");
+        s.replaceAll("l", "");
+        s.replaceAll("m", "");
+        s.replaceAll("n", "");
+        s.replaceAll("o", "");
+        s.replaceAll("q", "");
+        s.replaceAll("r", "");
+        s.replaceAll("s", "");
+        s.replaceAll("t", "");
+        s.replaceAll("u", "");
+        s.replaceAll("v", "");
+        s.replaceAll("w", "");
+        s.replaceAll("x", "");
+        s.replaceAll("y", "");
+        s.replaceAll("z", "");
+        s.replaceAll("A", "");
+        s.replaceAll("B", "");
+        s.replaceAll("C", "");
+        s.replaceAll("D", "");
+        s.replaceAll("E", "");
+        s.replaceAll("F", "");
+        s.replaceAll("G", "");
+        s.replaceAll("H", "");
+        s.replaceAll("I", "");
+        s.replaceAll("J", "");
+        s.replaceAll("K", "");
+        s.replaceAll("L", "");
+        s.replaceAll("M", "");
+        s.replaceAll("N", "");
+        s.replaceAll("O", "");
+        s.replaceAll("Q", "");
+        s.replaceAll("R", "");
+        s.replaceAll("S", "");
+        s.replaceAll("T", "");
+        s.replaceAll("U", "");
+        s.replaceAll("V", "");
+        s.replaceAll("W", "");
+        s.replaceAll("X", "");
+        s.replaceAll("Y", "");
+        s.replaceAll("Z", "");*/
+
+        Log.d("TAG","LE STRING = "+s);
+        Pattern p = Pattern.compile("P[0-9]-[0-9]{4}");
+        Matcher m = p.matcher(s);
+        Boolean b = m.matches();
+
+        String resultat =""; //string à afficher dans le popup
+
+        if(b){
+            Log.d("cool","texte ok");
+            resultat = s;
+        }
+
+        else
+            resultat = "Données Illisibles";
+        System.out.println("Chaine envoyé : " + s);
+
+        /*ImageDialog.New()
                 .addBitmap(bmp)
-                .addTitle(s)
-                .show(context.getFragmentManager(), TAG);
+                .addTitle(resultat)
+                .show(context.getFragmentManager(), TAG);*/
+
+        Intent intent = new Intent(context.getApplicationContext(), MapActivity.class);
+        intent.putExtra("NamePosition", s);
+        context.startActivity(intent);
 
         super.onPostExecute(s);
     }

@@ -30,9 +30,8 @@ public class TessEngine {
         Log.d(TAG, "Tess folder: " + path);
         tessBaseAPI.setDebug(true);
         tessBaseAPI.init(path, "eng");
-        tessBaseAPI.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "1234567890");
-        tessBaseAPI.setVariable(TessBaseAPI.VAR_CHAR_BLACKLIST, "!@#$%^&*()_+=-qwertyuiop[]}{POIU" +
-                "YTREWQasdASDfghFGHjklJKLl;L:'\"\\|~`xcvXCVbnmBNM,./<>?");
+        tessBaseAPI.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "1234567890-P!@#$%^&*()_+=-qwertyuiop[]}{OIU\" + \"YTREWQasdASDfghFGHjklJKLl;L:'\"\\|~`xcvXCVbnmBNM,./<>?");
+        tessBaseAPI.setVariable(TessBaseAPI.VAR_CHAR_BLACKLIST, "");
         tessBaseAPI.setPageSegMode(TessBaseAPI.OEM_TESSERACT_CUBE_COMBINED);
         Log.d(TAG, "Ended initialization of TessEngine");
         Log.d(TAG, "Running inspection on bitmap");

@@ -20,7 +20,18 @@
         android:layout_height="wrap_content"
         android:text="Find me"
         android:id="@+id/B_Validate"
+        android:layout_marginTop="46dp"
         android:layout_below="@+id/TB_RoomName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp" />
+        android:layout_alignRight="@+id/TB_RoomName"
+        android:layout_alignEnd="@+id/TB_RoomName"
+        android:layout_marginRight="88dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Camera"
+        android:id="@+id/B_Camera"
+        android:layout_alignTop="@+id/B_Validate"
+        android:layout_toLeftOf="@+id/B_Validate"
+        android:layout_toStartOf="@+id/B_Validate" />
 </RelativeLayout>

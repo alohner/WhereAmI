@@ -49,6 +49,7 @@ public class Graph {
      */
     private void autoInit()
     {
+        nodes = new ArrayList<Node>();
         //Ajout des points d'intérêts
         //P1 7070
         Node salle = new Node(0,"P1-7070",TypeNode.RoomClass,new Position(193,282));

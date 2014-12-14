@@ -122,13 +122,16 @@ public class Tools {
         Point CamRes = FocusBoxUtils.getCameraResolution(context, camera);
         Point ScrRes = FocusBoxUtils.getScreenResolution(context);
 
+        //ajustement de l'image
+        int adjustLeft = 10, adjustTop = 100;
+
         int SW = ScrRes.x;
         int SH = ScrRes.y;
 
         int RW = box.width();
         int RH = box.height();
-        int RL = box.left;
-        int RT = box.top;
+        int RL = box.left+adjustLeft;
+        int RT = box.top+adjustTop;
 
         float RSW = (float) (RW * Math.pow(SW, -1));
         float RSH = (float) (RH * Math.pow(SH, -1));

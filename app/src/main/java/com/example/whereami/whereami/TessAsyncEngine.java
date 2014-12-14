@@ -171,14 +171,14 @@ public class TessAsyncEngine extends AsyncTask<Object, Void, String> {
             resultat = "Données Illisibles";
         System.out.println("Chaine envoyé : " + s);
 
-        ImageDialog.New()
+        /*ImageDialog.New()
                 .addBitmap(bmp)
                 .addTitle(resultat)
-                .show(context.getFragmentManager(), TAG);
+                .show(context.getFragmentManager(), TAG);*/
 
         Intent intent = new Intent(context.getApplicationContext(), MapActivity.class);
         intent.putExtra("NamePosition", s);
-        // context.startActivity(intent);
+        context.startActivity(intent);
 
         super.onPostExecute(s);
     }

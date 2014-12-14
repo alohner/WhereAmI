@@ -4,21 +4,13 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.FloatMath;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import java.io.FileNotFoundException;
 
 import MapGraphe.Graph;
 import MapGraphe.Node;
@@ -27,6 +19,7 @@ import MapGraphe.Position;
 /**
  * Created by Quentin on 26/11/2014.
  * @version 2.0 le 11/12/2014 par Antonin
+* @version 3.0 le 13/12/2014 par Antonin
  */
 public class MapActivity extends Activity {
 
@@ -56,7 +49,6 @@ public class MapActivity extends Activity {
         {
             userPos = indoorMap.getNodeWithName(b.getString("NamePosition"));
         }
-        userPos = indoorMap.getNodeWithName("P1-6090");
         if (userPos != null)//Si on l'a trouvé alors on affiche
         {
             locateHim(userPos.getPosition());

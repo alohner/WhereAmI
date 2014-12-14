@@ -1,6 +1,8 @@
 package com.example.whereami.whereami;
 
+import android.app.ActionBar;
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -12,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
 import MapGraphe.Graph;
 import MapGraphe.Node;
 import MapGraphe.Position;
@@ -21,7 +24,11 @@ import MapGraphe.Position;
  * @version 2.0 le 11/12/2014 par Antonin
 * @version 3.0 le 13/12/2014 par Antonin
  */
-public class MapActivity extends Activity {
+public class MapActivity extends Activity implements ActionBar.TabListener{
+
+    private ViewPager viewPager;
+    private TabsPagerAdapter mAdapter;
+    private ActionBar actionBar;
 
     //Map de la fac
     public Graph indoorMap;
@@ -34,6 +41,21 @@ public class MapActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        //Initialization
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        actionBar = getActionBar();
+        mAdapter = new TabsPagerAdapter(getFragmentManager());
+
+        viewPager.setAdapter(mAdapter);
+        actionBar.setHomeButtonEnabled(false);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        for (String tab_name : tabs)
+        {
+            actionBar.addTab(actionBar.newTab().setText(tab_name)
+                    .setTabListener(this));
+        }
+
         //Initialise la carte
         mapInit();
         //Récupère les informations passé en paramètre de l'activité
@@ -45,10 +67,11 @@ public class MapActivity extends Activity {
         view.setOnTouchListener(new PanAndZoomListener(view, IMG, PanAndZoomListener.Anchor.TOPLEFT));
 
         //on récupère la position de l'utilisateur
-        if ( b !=null)
+        /*if ( b !=null)
         {
             userPos = indoorMap.getNodeWithName(b.getString("NamePosition"));
-        }
+        }*/
+        userPos = indoorMap.getNodeWithName("P1-5000");
         if (userPos != null)//Si on l'a trouvé alors on affiche
         {
             locateHim(userPos.getPosition());
@@ -97,5 +120,20 @@ public class MapActivity extends Activity {
         newCanvas.translate(pos.getX(),pos.getY());
         newCanvas.drawBitmap(bm2, pos.getX(), pos.getY(), paint);
         return newBitmap;
+    }
+
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+
+    }
+
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+
     }
 }

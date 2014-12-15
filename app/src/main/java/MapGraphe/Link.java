@@ -6,28 +6,21 @@ package MapGraphe;
  */
 public class Link {
 
-    private int ID;
     private Node source;
     private Node destination;
     private int weight;
 
     /***
      * Un lien relie deux noeuds
-     * @param id son identifiant
      * @param s le noeud source
      * @param d le noeud destination
      * @param w le poids du lien
      */
-    public Link(int id, Node s, Node d, int w)
+    public Link( Node s, Node d, int w)
     {
-        ID = id;
         source = s;
         destination = d;
         weight = w;
-    }
-
-    public int getID() {
-        return ID;
     }
 
     public Node getSource() {

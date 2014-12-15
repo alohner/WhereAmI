@@ -18,7 +18,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find me"
+        android:text="Trouvez moi"
         android:id="@+id/B_Validate"
         android:layout_marginTop="46dp"
         android:layout_below="@+id/TB_RoomName"
@@ -34,4 +34,6 @@
         android:layout_alignTop="@+id/B_Validate"
         android:layout_toLeftOf="@+id/B_Validate"
         android:layout_toStartOf="@+id/B_Validate" />
+
+
 </RelativeLayout>

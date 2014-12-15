@@ -33,5 +33,6 @@
         <activity android:name="com.example.whereami.whereami.CaptureActivity" />
         <activity android:name="com.example.whereami.whereami.MapActivity" />
         <activity android:name="com.example.whereami.whereami.CameraActivity" />
+        <activity android:name="com.example.whereami.whereami.ItineraireActivity"/>
     </application>
 </manifest>
